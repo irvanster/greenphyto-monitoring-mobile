@@ -12,6 +12,7 @@ class SecondRoute extends StatefulWidget {
   const SecondRoute({Key? key, required this.locationId}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SecondRouteState createState() => _SecondRouteState();
 }
 
