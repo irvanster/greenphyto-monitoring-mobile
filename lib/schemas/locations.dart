@@ -2,7 +2,6 @@ class CurrentMonitor {
   final String id;
   final String soilEc;
   final String soilPh;
-  final List<String> soilNpk;
   final String waterEc;
   final String waterPh;
   final String waterTds;
@@ -18,7 +17,6 @@ class CurrentMonitor {
     required this.id,
     required this.soilEc,
     required this.soilPh,
-    required this.soilNpk,
     required this.waterEc,
     required this.waterPh,
     required this.waterTds,
@@ -36,7 +34,6 @@ class CurrentMonitor {
       id: json['id'] as String,
       soilEc: json['soil_ec'] as String,
       soilPh: json['soil_ph'] ?? '',
-      soilNpk: List<String>.from(json['soil_npk'] as List),
       waterEc: json['water_ec'] as String,
       waterPh: json['water_ph'] as String,
       waterTds: json['water_tds'] as String,
@@ -110,7 +107,6 @@ class HistoryData {
   final String soilTemperature;
   final String soilEc;
   final String soilPh;
-  final List<String> soilNpk;
   final String soilMoisture;
   final String weatherHumidity;
   final String weatherTemperature;
@@ -126,7 +122,6 @@ class HistoryData {
     required this.soilPh,
     required this.soilTemperature,
     required this.soilEc,
-    required this.soilNpk,
     required this.soilMoisture,
     required this.weatherHumidity,
     required this.weatherTemperature,
@@ -144,7 +139,6 @@ class HistoryData {
       soilTemperature: json['soil_temperature'] ?? '',
       soilEc: json['soil_ec'] ?? '',
       soilPh: json['soil_ph'] ?? '',
-      soilNpk: List<String>.from(json['soil_npk'] ?? []),
       soilMoisture: json['soil_moisture'] ?? '',
       weatherHumidity: json['weather_humidity'] ?? '',
       weatherTemperature: json['weather_temperature'] ?? '',

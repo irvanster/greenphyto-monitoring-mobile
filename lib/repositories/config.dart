@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
-const String baseUrl = "http://192.168.100.170:5000/";
+const String baseUrl = "https://greenphytotest.genieedocs.com/";
 
 class SocketManager {
   late IO.Socket socket;
