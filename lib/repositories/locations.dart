@@ -33,4 +33,35 @@ class LocationsRepository {
       return [];
     }
   }
+
+  Future<Map<String, dynamic>> getDetail(String locationId) async {
+    try {
+      final response =
+          await http.get(Uri.parse('${baseUrl}monitor-locations/$locationId'));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+        if (responseData['success'] == true) {
+          final Map<String, dynamic> data = responseData['data'];
+
+          return data;
+        } else {
+          if (kDebugMode) {
+            print('Failed to fetch data. Message: ${responseData['message']}');
+          }
+          return {};
+        }
+      } else {
+        if (kDebugMode) {
+          print('Failed to fetch data. Status Code: ${response.statusCode}');
+        }
+        return {};
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Exception while fetching location detail: $e');
+      }
+      return {};
+    }
+  }
 }

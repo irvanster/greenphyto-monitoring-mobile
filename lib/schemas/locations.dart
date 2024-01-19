@@ -1,6 +1,7 @@
 class CurrentMonitor {
   final String id;
   final String soilEc;
+  final String soilPh;
   final List<String> soilNpk;
   final String waterEc;
   final String waterPh;
@@ -16,6 +17,7 @@ class CurrentMonitor {
   const CurrentMonitor({
     required this.id,
     required this.soilEc,
+    required this.soilPh,
     required this.soilNpk,
     required this.waterEc,
     required this.waterPh,
@@ -33,6 +35,7 @@ class CurrentMonitor {
     return CurrentMonitor(
       id: json['id'] as String,
       soilEc: json['soil_ec'] as String,
+      soilPh: json['soil_ph'] ?? '',
       soilNpk: List<String>.from(json['soil_npk'] as List),
       waterEc: json['water_ec'] as String,
       waterPh: json['water_ph'] as String,
@@ -68,6 +71,84 @@ class Location {
       locationImage: json['location_image'] as String,
       currentMonitor: CurrentMonitor.fromJson(
           json['current_monitor'] as Map<String, dynamic>),
+    );
+  }
+}
+
+//locations history / detail
+class LocationDetail {
+  final String locationId;
+  final String locationName;
+  final String locationImage;
+  final List<HistoryData> history;
+
+  LocationDetail({
+    required this.locationId,
+    required this.locationName,
+    required this.locationImage,
+    required this.history,
+  });
+
+  factory LocationDetail.fromJson(Map<String, dynamic> json) {
+    return LocationDetail(
+      locationId: json['location_id'] ?? '',
+      locationName: json['location_name'] ?? '',
+      locationImage: json['location_image'] ?? '',
+      history: List<HistoryData>.from((json['history'] ?? [])
+          .map((historyItem) => HistoryData.fromJson(historyItem))),
+    );
+  }
+}
+
+class HistoryData {
+  final String id;
+  final String lightIntensity;
+  final String waterPh;
+  final String waterTss;
+  final String waterEc;
+  final String waterTds;
+  final String soilTemperature;
+  final String soilEc;
+  final String soilPh;
+  final List<String> soilNpk;
+  final String soilMoisture;
+  final String weatherHumidity;
+  final String weatherTemperature;
+  final String createdAt;
+
+  HistoryData({
+    required this.id,
+    required this.lightIntensity,
+    required this.waterPh,
+    required this.waterTss,
+    required this.waterEc,
+    required this.waterTds,
+    required this.soilPh,
+    required this.soilTemperature,
+    required this.soilEc,
+    required this.soilNpk,
+    required this.soilMoisture,
+    required this.weatherHumidity,
+    required this.weatherTemperature,
+    required this.createdAt,
+  });
+
+  factory HistoryData.fromJson(Map<String, dynamic> json) {
+    return HistoryData(
+      id: json['id'] ?? '',
+      lightIntensity: json['light_intensity'] ?? '',
+      waterPh: json['water_ph'] ?? '',
+      waterTss: json['water_tss'] ?? '',
+      waterEc: json['water_ec'] ?? '',
+      waterTds: json['water_tds'] ?? '',
+      soilTemperature: json['soil_temperature'] ?? '',
+      soilEc: json['soil_ec'] ?? '',
+      soilPh: json['soil_ph'] ?? '',
+      soilNpk: List<String>.from(json['soil_npk'] ?? []),
+      soilMoisture: json['soil_moisture'] ?? '',
+      weatherHumidity: json['weather_humidity'] ?? '',
+      weatherTemperature: json['weather_temperature'] ?? '',
+      createdAt: json['created_at'] ?? '',
     );
   }
 }
