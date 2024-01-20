@@ -18,7 +18,7 @@ To test the app:
 
 1. Install the APK on your Android device.
 2. Open the Postman collection from the provided link.
-3. Change the provided values in the body (x-www-form-urlencoded) to simulate sensor readings for locations A and B.
+3. Demo URL API: `https://greenphytotest.genieedocs.com/monitors` in the `sensor add data` collection with method `POST` and Change the provided values in the body (x-www-form-urlencoded) to simulate sensor readings for locations A and B.
 
 ```plain
   location_id: 27f9d433-29d2-499c-bab7-c7ab07086d19,
@@ -64,7 +64,7 @@ To run the **Sensor Data Integration and Visualization App** locally, follow the
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/irvanster/greenphyto-monitoring-mobile greenphyto
+   git clone https://github.com/irvanster/greenphyto-monitoring-mobile.git greenphyto
 2. Install dependencies:
 	 ```bash 
 	 cd greenphyto
