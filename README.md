@@ -10,6 +10,38 @@ Click on the image above to watch a video demonstration of the app's features an
 The **Sensor Data Integration and Visualization App** is a mobile application developed using Flutter. The app's primary objective is to fetch sensor data, such as temperature or pH levels, from the [sensorlevel-be](https://github.com/irvanster/sensorlevel-be) open-source API endpoint. It then visualizes this data in real-time using graphs, providing users with a user-friendly interface to view current sensor readings and historical trends.
 
 
+## Structure
+```
+└── 📁lib
+    └── main.dart
+    └── 📁repositories
+        └── config.dart
+        └── locations.dart
+    └── 📁schemas
+        └── locations.dart
+    └── 📁screens
+        └── detail.dart
+```
+- **main.dart:**
+  - The main entry point of the Flutter application.
+
+- **repositories:**
+  - **config.dart:**
+    - Contains configurations and settings like SocketIO, base Url for the project related for repositories.
+  - **locations.dart:**
+    - Handles the data retrieval and interaction with the [sensorlevel-be](https://github.com/irvanster/sensorlevel-be) API. Manages fetching and processing sensor data.
+
+- **schemas:**
+  - **locations.dart:**
+    - Defines classes and data structures (schemas) related to the locations, ensuring a structured representation of the fetched data.
+
+- **screens:**
+  - **detail.dart:**
+    - Represents a screen in the Flutter app, specifically designed for displaying detailed information about a location or sensor data. This screen may utilize data from the repositories and follow the structure defined in the schemas.
+
+This project structure follows a modular approach, separating concerns into different directories for better organization and maintainability.
+
+
 ## Download & Demo App
 
 You can **download the APK and view the Postman documentation** [here](https://drive.google.com/drive/u/2/folders/1sXWSQkCQWXWGhQSkM_7Vs0XxrSrkRCtC).
